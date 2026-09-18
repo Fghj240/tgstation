@@ -214,12 +214,11 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(HAS_TRAIT(src, TRAIT_CLIENT_STARTING_ORGAN))
 			. += span_info("Lived in and homely. Proven to work. This should fetch a high price on the market.")
 
-	if(organ_flags & ORGAN_FAILING)
-		. += span_warning("[src] [failing_desc]")
-		return
-
 	if(organ_flags & ORGAN_WOUNDED)
 		. += span_warning("[src] [wounded_desc] It needs to be <b>stitched up</b> before it'll work properly.")
+
+	if(organ_flags & ORGAN_FAILING)
+		. += span_warning("[src] [failing_desc]")
 		return
 
 	if(damage > high_threshold)
@@ -569,7 +568,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		var/mob/living/living_user = user
 		if(!living_user.combat_mode)
 			return..()
-	if(!(organ_flags & ORGAN_ROBOTIC)) // Remove this if robotic organ wounds ever become a thing
+	if(!(organ_flags & ORGAN_ORGANIC)) // Remove this if robotic organ wounds ever become a thing
 		return ..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src)
@@ -583,7 +582,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	wounded(attacking_item, user, modifiers, attack_modifiers)
 
 /obj/item/organ/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(organ_flags & ORGAN_WOUNDED && istype(tool, obj/item/stack/medical/suture))
+	if(organ_flags & ORGAN_WOUNDED && istype(tool, /obj/item/stack/medical/suture))
 		if(tool.use_tool(src, user, 2 SECONDS, 1))
 			balloon_alert(user, "organ stitched")
 			organ_flags &= ~ORGAN_WOUNDED

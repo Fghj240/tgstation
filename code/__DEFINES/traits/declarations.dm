@@ -39,10 +39,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define STATION_TRAIT_PDA_GLITCHED "station_trait_pda_glitched"
 #define STATION_TRAIT_PREMIUM_INTERNALS "station_trait_premium_internals"
 #define STATION_TRAIT_PUN_PUN_GYM_DAY "station_trait_pun_pun_gym_day"
+#define STATION_TRAIT_QUICK_SHUTTLE "station_trait_quick_shuttle"
 #define STATION_TRAIT_RADIOACTIVE_NEBULA "station_trait_radioactive_nebula"
 #define STATION_TRAIT_RANDOM_ARRIVALS "station_trait_random_arrivals"
 #define STATION_TRAIT_REVOLUTIONARY_TRASHING "station_trait_revolutionary_trashing"
 #define STATION_TRAIT_SHUTTLE_SALE "station_trait_shuttle_sale"
+#define STATION_TRAIT_SLOW_SHUTTLE "station_trait_slow_shuttle"
 #define STATION_TRAIT_SMALLER_PODS "station_trait_smaller_pods"
 #define STATION_TRAIT_SPIDER_INFESTATION "station_trait_spider_infestation"
 #define STATION_TRAIT_UNIQUE_AI "station_trait_unique_ai"
@@ -258,6 +260,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_PLASMA_LOVER_METABOLISM "plasma_lover_metabolism"
 /// The mob is not harmed by tetrodotoxin. Instead, it heals them like omnizine
 #define TRAIT_TETRODOTOXIN_HEALING "tetrodotoxin_healing"
+/// Do not allow legs to be attached to a mob with this trait
+#define TRAIT_BLOCK_ATTACHING_LEGS "block_attaching_legs"
 #define TRAIT_EASYDISMEMBER "easy_dismember"
 #define TRAIT_LIMBATTACHMENT "limb_attach"
 #define TRAIT_NOLIMBDISABLE "no_limb_disable"
@@ -409,6 +413,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MESON_VISION "meson_vision"
 /// Gives us Night vision
 #define TRAIT_TRUE_NIGHT_VISION "true_night_vision"
+/// Gives us the ability to see objects thru walls and slight night vision
+#define TRAIT_MATERIAL_VISON "objects_vision"
 /// Negates our gravity, letting us move normally on floors in 0-g
 #define TRAIT_NEGATES_GRAVITY "negates_gravity"
 /// We are ignoring gravity
@@ -737,6 +743,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait that makes you only SOMETIMES bite when attacking with an unarmed strike.
 #define TRAIT_REFINED_BITER "refined biter"
 
+/// Trait that ignores whether or not a human's head can be decapitated, and permits it instead.
+#define TRAIT_ALWAYS_ALLOW_DECAPITATION "always_allow_decapitation"
+
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
 // to various drinks and foodstuffs. Security liking donuts is a classic
@@ -878,6 +887,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_WADDLING "trait_waddling"
 /// Mobs with trait will still waddle even when lying on the floor and make a different footstep sound when doing so.
 #define TRAIT_FLOPPING "trait_flopping"
+/// To be used combined with TRAIT_FLOPPING, to make a mob flop exclusively when laying on the floor.
+#define TRAIT_FLOOR_FLOPPING "trait_floor_flopping"
 /// Required by the on_hit_effect element, which is in turn added by other elements.
 #define TRAIT_ON_HIT_EFFECT "trait_on_hit_effect"
 
